@@ -12,13 +12,19 @@ app.listen(PORT);
 
 app.use(logger('dev'));
 app.use(cookieParser());
+app.use(logger('tiny'));
+app.use('/about', (req, res, next) => {
+    res.cookie('username', 'surendra');
+    res.send('This is where we handle the about cookie kit');
+    next();
+});
 
-// WIP --------
+app.use((req, res, next) => {
+    console.log(req.cookies);
+    next();
+})
 
 // Routes
-app.get('/about', (req, res) => {
-    res.cookie("username", "surendra");
-})
 
 app.get('/', (req, res) => {
     res.send('Port opened at 3040');
