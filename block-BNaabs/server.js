@@ -17,16 +17,19 @@ app.get('/', (req, res) => {
 
 // - Add a GET request on '/new' route and render new.html with a html form.
 app.get('/new', (req, res) => {
-    // Do Something
+    res.sendFile(__dirname + '/new.html');
 });
 
 // - add a post request on '/new' route and display submitted form data
+express.urlencoded({ extended: false});
+
 app.post('/new', (req, res) => {
-    // Do Something
+    res.send(req.body);
+    console.log(req.body);
 });
 
 // - add a route with params to grab request made on `/users/1234` or `/users/asdf`
 
 app.get('/users/:username', (req, res) => {
-    // Do Something
+    res.send(req.params.username);
 });
