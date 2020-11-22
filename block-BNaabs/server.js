@@ -24,8 +24,7 @@ app.get('/new', (req, res) => {
 express.urlencoded({ extended: false});
 
 app.post('/new', (req, res) => {
-    res.send(req.body);
-    console.log(req.body);
+    res.json(req.body);
 });
 
 // - add a route with params to grab request made on `/users/1234` or `/users/asdf`
