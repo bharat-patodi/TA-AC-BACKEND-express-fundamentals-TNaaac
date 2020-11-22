@@ -10,6 +10,6 @@
   "license": "GNU GPL V3",
   "dependencies": {
     "express": "^4.17.1",
-    "start": "nodemon server.js"
+    "start": "node server.js"
   }
 }
