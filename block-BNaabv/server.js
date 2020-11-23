@@ -6,12 +6,15 @@ const app = express();
 const PORT = 3000;
 
 // Middleware
-app.use(cookieParser())
+app.use(logger('dev'));
+app.use(cookieParser());
+app.use(express.json()); // to capture json data form request
+app.use(express.urlencoded()); // to capture form data from request
 
 // GET /
 app.get('/', (req, res) => {
     res.cookie('loggedIn', true);
-    res.send('Welcome to Express');
+    res.send('<h1>Welcome to Express</h1>');
 });
 
 // GET /about
@@ -25,21 +28,19 @@ app.get('/users/:username', (req, res) => {
 });
 
 // POST /form
-app.use('/form', (req, res, next) => {
-    app.use(express.urlencoded()); // to capture form data from request
-    res.send(res.body);
+app.post('/form', (req, res, next) => {
+    res.send(req.body);
 });
 
 // POST /json
-app.use('/json', (req, res, next) => {
-    app.use(express.json()) // to capture json data form request
-    res.send(res.body);
+app.post('/json', (req, res, next) => {
+    res.json(req.body);
 });
 
 
 // 404 response
 app.use((req, res, next) => {
-    res.next('404');
+    res.send('404');
 });
 
 app.use((err, req, res, next) => {
