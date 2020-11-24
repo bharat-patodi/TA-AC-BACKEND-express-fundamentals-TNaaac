@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@100;400;900&display=swap");
+
+body {
+  background-color: midnightblue;
+  color: whitesmoke;
+  font-family: "Big Shoulders Stencil Display", cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 10rem;
+  line-height: 2rem;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 5rem;
+}
+
+img {
+  border: 1rem solid whitesmoke;
+  width: 300px;
+}
