@@ -35,7 +35,7 @@ app.post('/submit-form', (req, res) => {
 // Error Handler for random routes
 app.use((req, res) => {
     console.log(req.method, req.url);
-    next('404');
+    res.send('404 - Page not found')
 })
 
 app.use((err, req, res, next) => {
